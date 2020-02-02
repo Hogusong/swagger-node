@@ -22,4 +22,10 @@ router.post('/cats', cors(), (req, res) => {
   }
 });
 
+router.get('/cats/:id', cors(), (req, res) => {
+  const cat = cats[req.params.id];
+  if (cat) res.status(200).json(cat);
+  else res.status(500).json({ error: "Cannot find the cat here."})
+});
+
 module.exports = router;
