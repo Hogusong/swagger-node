@@ -21,6 +21,23 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
 
+  "paths": {
+    "/cats": {
+      "get": {
+        "tags": ["Cats"],
+        "summary": "Get all cats in system.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#definitions/Cats"
+            }
+          }
+        }
+      }
+    }
+  },
+
   "definitions": {
     "id": {
       "properties": {
