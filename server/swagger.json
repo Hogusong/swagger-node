@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Cats API",
+    "description": "Cats API Information",
+    "license": {
+      "name": "MIT",
+      "url": "https:/opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Cats",
+      "description": "API for cats in the system"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+
+  "definitions": {
+    "id": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      }
+    },
+    "Cat": {
+      "type": "object",
+      "properties": {
+        "genus": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isHungry": {
+          "type": "boolean"
+        },
+        "lastFedDate": {
+          "type": "string"
+        }
+      }
+    },
+    "Cats": {
+      "type": "object",
+      "properties": {
+        "cats": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#definitions/Cat"
+          }
+        }
+      }
+    }
+  }
+}
