@@ -28,4 +28,12 @@ router.get('/cats/:id', cors(), (req, res) => {
   else res.status(500).json({ error: "Cannot find the cat here."})
 });
 
+router.put('/cats/:id', cors(), (req, res) => {
+  const cat = Object.assign({}, req.body);
+  if (cats[req.params.id]) {
+    cats[req.params.id] = cat;
+    res.status(200).json(cats);
+  } else res.status(500).json({ error: "Cannot find the cat here."})
+});
+
 module.exports = router;
