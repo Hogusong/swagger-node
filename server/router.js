@@ -12,4 +12,14 @@ router.get('/cats', cors(), (req, res) => {
   res.json(cats);
 });
 
+router.post('/cats', cors(), (req, res) => {
+  try {
+    const cat = Object.assign({}, req.body);
+    cats[uuid()] = cat;
+    res.status(200).json(cat);
+  } catch(e) {
+    res.status(400).send(JSON.stringify({ error: "Problem with posted data."}))
+  }
+});
+
 module.exports = router;
